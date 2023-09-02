@@ -1,4 +1,5 @@
 import type { App } from 'vue';
+import { createPinia } from 'pinia'
 
 const i18nPlugin = {
     install: (app, options) => {
@@ -14,6 +15,8 @@ const i18nPlugin = {
 }
 
 export default (app: App) => {
+    const pinia = createPinia()
+    app.use(pinia)
     app.use(i18nPlugin, {
         greetings: {
             hello: 'Bonjour!'
